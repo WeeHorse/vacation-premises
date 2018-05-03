@@ -2,11 +2,13 @@
   {
     "firstName": "Benjamin",
     "lastName": "Berglund",
-    "type": "Customer"
+    "type": "Customer",
+    "email": "benjamin@nodebite.se"
   },
   {
     "firstName": "Winston",
     "lastName": "Johnson",
-    "type": "Owner"
+    "type": "Owner",
+    "email": "winston.johnson@test.com"
   }
 ]
