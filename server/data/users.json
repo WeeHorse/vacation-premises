@@ -1,0 +1,12 @@
+[
+  {
+    "firstName": "Benjamin",
+    "lastName": "Berglund",
+    "type": "Customer"
+  },
+  {
+    "firstName": "Winston",
+    "lastName": "Johnson",
+    "type": "Owner"
+  }
+]
