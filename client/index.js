@@ -5,6 +5,18 @@ let owners = [];
 let apartments = [];
 let contracts = [];
 
+// function renderApartment(data, selector){
+//   $(`<div class="col-md-4">
+//     <h2>${data.name}</h2>
+//     <p>${data.address}</p>
+//     <div>
+//       <img src="${data.image}" class="img-fluid">
+//     </div>
+//     <br>
+//     <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+//   </div>`).appendTo(selector);
+// }
+
 $(start);
 
 async function start(){
@@ -31,18 +43,17 @@ async function start(){
     }
     console.log('customers', customers);
     console.log('owners', owners);
-
-    // 4. make some appartment objects
-    let aps = await http.get('/data/apartments');
-    console.log('aps', aps);
-    if(aps.data){
-      for(let apartment of aps.data){
-        apartments.push( new Apartment(apartment) );
-      }
-    }
-    console.log('apartments', apartments);
-
   }
+
+  // 4. make some apartment objects
+  let aps = await http.get('/data/apartments');
+  console.log('aps', aps);
+  if(aps.data){
+    for(let apartment of aps.data){
+      apartments.push( new Apartment(apartment) );
+    }
+  }
+  console.log('apartments', apartments);
 
 
   // 5. make a contract for an appartment rental between a customer and an owner
@@ -69,6 +80,43 @@ async function start(){
     // a) an order is placed by the customer
     // b) the order is aproved by the owner
     // c) the contract is issued to the customer and owner by the agent
+
+
+  for(let apartment of apartments){
+    // data: apartment.name, apartment.address
+
+    apartment.render('.apartments, .dropdown-aps');
+
+    // renderApartment(apartment, '.apartments');
+    // renderApartment(apartment, '.dropdown-aps');
+    // renderApartment(apartment, '.apartments, .dropdown-aps');
+
+    // let html = `<div class="col-md-4">
+    //   <h2>${apartment.name}</h2>
+    //   <p>${apartment.address}</p>
+    //   <div>
+    //     <img src="${apartment.image}" class="img-fluid">
+    //   </div>
+    //   <br>
+    //   <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+    // </div>`;
+    // $('.apartments').append(html);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
 

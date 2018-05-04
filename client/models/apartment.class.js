@@ -20,4 +20,16 @@ class Apartment{
     }
   }
 
+  // render(selector){
+  //   $(`<div class="col-md-4">
+  //     <h2>${this.name}</h2>
+  //     <p>${this.address}</p>
+  //     <div>
+  //       <img src="${this.image}" class="img-fluid">
+  //     </div>
+  //     <br>
+  //     <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+  //   </div>`).appendTo(selector);
+  // }
+
 }
