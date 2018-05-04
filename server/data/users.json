@@ -2,11 +2,25 @@
   {
     "firstName": "Benjamin",
     "lastName": "Berglund",
-    "type": "Customer"
+    "type": "Customer",
+    "email": "benjamin@nodebite.se"
+  },
+  {
+    "firstName": "Ola",
+    "lastName": "Bandola",
+    "type": "Customer",
+    "email": "ola@nodebite.se"
   },
   {
     "firstName": "Winston",
     "lastName": "Johnson",
-    "type": "Owner"
+    "type": "Owner",
+    "email": "win@property-rentals.com"
+  },
+  {
+    "firstName": "Brendan",
+    "lastName": "Nilsson",
+    "type": "Agent",
+    "email": "agent@secret-rentals.con"
   }
 ]
