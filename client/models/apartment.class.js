@@ -1,7 +1,8 @@
 class Apartment{
 
-  constructor(props){
-    this.owner = props.owner;
+  constructor(name, owner){
+    this.name = name;
+    this.owner = owner;
   }
 
 }

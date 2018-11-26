@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Villa del Sol",
+    "address": "Rue de la Soleil de la nuit 14, Narvik",
+    "owner": "win@property-rentals.com",
+    "image": "/images/villa-del-sol.jpg",
+    "pricePerDay": 40
+  },
+  {
+    "name": "Lake view",
+    "address": "Ocean front 4, Mazatlan",
+    "owner": "win@property-rentals.com",
+    "image": "/images/mazatlan.jpg",
+    "pricePerDay": 50
+  },
+  {
+    "name": "Palma de palmas",
+    "address": "Route del touroperador, Gran Canaria",
+    "owner": "win@property-rentals.com",
+    "image": "/images/las-palmas.jpg",
+    "pricePerDay": 30
+  }
+]

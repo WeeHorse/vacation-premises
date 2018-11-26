@@ -1,6 +1,8 @@
 // config
 const http = axios;
 let customers = [];
+let owners = [];
+let apartments = [];
 
 $(start);
 async function start(){
@@ -10,19 +12,34 @@ async function start(){
   // check
   if(users.data){
 
-    // 2. make some customer objects
     for(let user of users.data){
+
+      // 2. make some customer objects
       if(user.type == 'Customer'){
         customers.push(new Customer(user.firstName, user.lastName));
       }
+      // 3. make some owner objects
+      if(user.type == 'Owner'){
+        owners.push(new Owner(user.firstName, user.lastName));
+      }
+
+
     }
     console.log('customers', customers);
+    console.log('owners', owners);
+  }
 
-    // 3. make some owner objects
+  // 4. make some apartment objects
+  let aps = await http.get('data/apartments');
+
+  for(let apartment of aps.data){
+
+    apartments.push( new Apartment(apartment.name, owners[0])  );
 
   }
 
-  // 4. make some appartment objects
+  console.log('apartments', apartments);
+
 
   // 5. make a contract for an appartment rental between a customer and an owner
 
