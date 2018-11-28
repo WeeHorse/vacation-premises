@@ -3,6 +3,7 @@ const http = axios;
 let customers = [];
 let owners = [];
 let apartments = [];
+let contracts = [];
 
 $(start);
 async function start(){
@@ -20,7 +21,7 @@ async function start(){
       }
       // 3. make some owner objects
       if(user.type == 'Owner'){
-        owners.push(new Owner(user.firstName, user.lastName));
+        owners.push(new Owner(user.firstName, user.lastName, user.email));
       }
 
 
@@ -33,22 +34,38 @@ async function start(){
   let aps = await http.get('data/apartments');
 
   for(let apartment of aps.data){
-
-    apartments.push( new Apartment(apartment.name, owners[0])  );
-
+    // also find and add the owner
+    for(let owner of owners){
+      if(apartment.owner == owner.email){
+        apartments.push( new Apartment(apartment.name, owner));
+      }
+    }
   }
 
   console.log('apartments', apartments);
 
-
   // 5. make a contract for an appartment rental between a customer and an owner
+  let contrs = await http.get('/data/contracts')
+  if(contrs.data){
+    for(let contract of contrs.data){
+
+      // find the apartment object with the name that matches contract.apartment
+      for(let apartment of apartments){
+        if(apartment.name == contract.apartment){
+          contracts.push( new Contract(apartment, contract.tenant) )
+        }
+      }
+
+    }
+  }
+  console.log('contracts', contracts);
 
   // 6. add an agent to the contract
-
   // 7. change the procedure above so that
     // a) an order is placed by the customer
     // b) the order is aproved by the owner
     // c) the contract is issued to the customer and owner by the agent
+
 
 }
 

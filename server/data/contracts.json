@@ -1,10 +1,20 @@
 [
   {
     "apartment": "Villa del Sol",
-    "tenant": "benjamin@nodebite.se"
+    "tenant": "benjamin@nodebite.se",
+    "checkIn": "2018-11-30",
+    "checkOut": "2018-12-06"
+  },
+  {
+    "apartment": "Villa del Sol",
+    "tenant": "erik@nodebite.se",
+    "checkIn": "2018-12-06",
+    "checkOut": "2018-12-18"
   },
   {
     "apartment": "Palma de palmas",
-    "tenant": "ola@nodebite.se"
+    "tenant": "ola@nodebite.se",
+    "checkIn": "2019-02-01",
+    "checkOut": "2019-02-20"
   }
 ]
