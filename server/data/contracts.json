@@ -3,18 +3,24 @@
     "apartment": "Villa del Sol",
     "tenant": "benjamin@nodebite.se",
     "checkIn": "2018-11-30",
-    "checkOut": "2018-12-06"
+    "checkOut": "2018-12-12"
   },
-  {
+    {
     "apartment": "Villa del Sol",
     "tenant": "erik@nodebite.se",
-    "checkIn": "2018-12-06",
-    "checkOut": "2018-12-18"
+    "checkIn": "2018-12-12",
+    "checkOut": "2018-12-22"
   },
   {
     "apartment": "Palma de palmas",
     "tenant": "ola@nodebite.se",
-    "checkIn": "2019-02-01",
-    "checkOut": "2019-02-20"
+    "checkIn": "2019-01-30",
+    "checkOut": "2019-02-10"
+  },
+  {
+    "apartment": "Lake view",
+    "tenant": "benjamin@nodebite.se",
+    "checkIn": "2019-05-30",
+    "checkOut": "2019-08-20"
   }
 ]
