@@ -2,6 +2,7 @@
 const http = axios;
 let customers = [];
 let owners = [];
+let agents = [];
 let apartments = [];
 let contracts = [];
 
@@ -17,17 +18,21 @@ async function start(){
 
       // 2. make some customer objects
       if(user.type == 'Customer'){
-        customers.push(new Customer(user.firstName, user.lastName));
+        customers.push(new Customer(user.firstName, user.lastName, user.email));
       }
       // 3. make some owner objects
       if(user.type == 'Owner'){
         owners.push(new Owner(user.firstName, user.lastName, user.email));
       }
-
+      // 6. make agent object(s), (we only have one)
+      if(user.type == 'Agent'){
+        agents.push(new Agent(user.firstName, user.lastName, user.email));
+      }
 
     }
     console.log('customers', customers);
     console.log('owners', owners);
+    console.log('agents', agents);
   }
 
   // 4. make some apartment objects
@@ -37,7 +42,7 @@ async function start(){
     // also find and add the owner
     for(let owner of owners){
       if(apartment.owner == owner.email){
-        apartments.push( new Apartment(apartment.name, owner));
+        apartments.push( new Apartment(apartment.name, apartment.address, apartment.owner, apartment.image, apartment.pricePerDay) );
       }
     }
   }
@@ -45,6 +50,7 @@ async function start(){
   console.log('apartments', apartments);
 
   // 5. make a contract for an appartment rental between a customer and an owner
+  // 6. add an agent to the contract
   let contrs = await http.get('/data/contracts')
   if(contrs.data){
     for(let contract of contrs.data){
@@ -52,19 +58,20 @@ async function start(){
       // find the apartment object with the name that matches contract.apartment
       for(let apartment of apartments){
         if(apartment.name == contract.apartment){
-          contracts.push( new Contract(apartment, contract.tenant) )
+
+          // find the customer based on the contract.tenant (which is an email)
+          for(let customer of customers){
+            if(customer.email == contract.tenant){
+              contracts.push( new Contract(apartment, customer, agents[0], contract.checkIn, contract.checkOut) )
+            }
+          }
+          // all theese loops.. hash tables would be nice!
         }
       }
 
     }
   }
   console.log('contracts', contracts);
-
-  // 6. add an agent to the contract
-  // 7. change the procedure above so that
-    // a) an order is placed by the customer
-    // b) the order is aproved by the owner
-    // c) the contract is issued to the customer and owner by the agent
 
 
 }
